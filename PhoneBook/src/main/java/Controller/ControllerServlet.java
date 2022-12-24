@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.mysql.cj.Session;
+import com.mysql.cj.Session;dklgfqioewj[flkwefihoqeroifqoinjoiioio
 
 import ControllerService.ControllerServiceInterfaceImpl;
 
@@ -22,55 +22,7 @@ public class ControllerServlet extends HttpServlet {
 
 	}
     
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		 HttpSession session = request.getSession();
-		 System.out.println(session);
-		
-		String action = request.getParameter("action");
-		System.out.println(action);
-		switch (action) {
-
-		//contact
-			
-		case "insert":
-			if (csii.insertContact(request, response))
-				request.setAttribute("msg", "Contact Added");
-			else
-				request.setAttribute("msg", "Something went wrong..please try again");
-			csii.listContact(request, response,session);
-
-			break;
-
-		case "delete":
-			if (csii.deleteContact(request, response))
-				request.setAttribute("msg", "Contact Deleted");
-			else
-				request.setAttribute("msg", "Something went wrong..please try again");
-			csii.listContact(request, response,session);
-			break;
-
-		case "edit":
-			csii.editContact(request, response);
-			break;
-
-		case "update":
-			if (csii.updateContact(request, response))
-				request.setAttribute("msg", "Contact updated");
-			else
-				request.setAttribute("msg", "Something went wrong..please try again");
-			csii.listContact(request, response,session);
-			break;
-			
-		case "list":
-			
-			csii.listContact(request, response,session);
-			break;
-			
-		
-			
-			
-			//user
+	
 		case "signup":
 			if (csii.signupUser(request, response)) 
 				{
